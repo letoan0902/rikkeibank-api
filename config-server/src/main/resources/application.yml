@@ -1,0 +1,21 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          # chạy từ thư mục gốc dự án
+          search-locations: ${RIKKEIBANK_CONFIG_REPO:file:./config-repo/}
+eureka:
+  client:
+    enabled: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

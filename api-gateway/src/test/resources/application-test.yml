@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    config:
+      enabled: false
+    discovery:
+      enabled: false
+    gateway:
+      routes:
+        - id: test-route
+          uri: http://localhost:1
+          predicates:
+            - Path=/api/**
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 500ms
+      connect-timeout: 500ms
+eureka:
+  client:
+    enabled: false
+management:
+  health:
+    redis:
+      enabled: false
+rikkeibank:
+  jwt:
+    secret: "RikkeiBankApiSecretKeyDungChungChoGatewayVaCacMicroservice2026!!"

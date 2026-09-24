@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${rikkeibank.mysql.host}:${rikkeibank.mysql.port}/rikkeibank_customer_db?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Ho_Chi_Minh
+    username: ${rikkeibank.mysql.username}
+    password: ${rikkeibank.mysql.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: false
+  cache:
+    type: redis
+    cache-names: customers
+
+eureka:
+  instance:
+    metadata-map:
+      service-group: core-banking
+
+logging:
+  level:
+    com.rikkeibank.customer: INFO

@@ -1,0 +1,33 @@
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 3000
+        response-timeout: 30s
+      routes:
+        - id: identity-service
+          uri: lb://identity-service
+          predicates:
+            - Path=/api/auth/**,/api/users/**
+        - id: customer-service
+          uri: lb://customer-service
+          predicates:
+            - Path=/api/customers/**,/api/staffs/**
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/api/account-types/**,/api/accounts/**
+        - id: transaction-service
+          uri: lb://transaction-service
+          predicates:
+            - Path=/api/transactions/**
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/api/notifications/**
+
+management:
+  health:
+    # gateway vẫn chạy khi Redis lỗi nên không tính Redis vào health
+    redis:
+      enabled: false
