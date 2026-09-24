@@ -88,7 +88,7 @@ notification 55,1%, gateway 87,0%. Báo cáo HTML tại `<module>/build/reports/
 
 ## Cách chạy
 
-Yêu cầu: Java 17, Docker Desktop, Git Bash.
+Yêu cầu: Java 17, Docker Desktop, Git Bash. Dự án dùng Gradle Wrapper ghim bản 8.14.3 (`./gradlew`), không dùng Gradle 9 vì plugin dependency-management 1.1.4 chưa tương thích.
 
 ```bash
 bash scripts/build-all.sh
